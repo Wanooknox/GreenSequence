@@ -13,12 +13,11 @@ public abstract class SequenceBase implements Sequence {
     @Override
     public void run() {
 
-//        while (actionQueue.peek() != null) {
-//        Action currAction = actionQueue.poll();
+//        Action currAction;
+//        while ((currAction = actionQueue.poll()) != null) {
 
-        Action currAction;
-        while ((currAction = actionQueue.poll()) != null) {
-
+        while (actionQueue.peek() != null) {
+        Action currAction = actionQueue.poll();
             if (currAction.invokable()) {
                 currAction.invoke();
             } else {
