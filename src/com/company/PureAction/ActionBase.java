@@ -12,7 +12,7 @@ public abstract class ActionBase<T> implements Action {
     protected abstract boolean isDataReady();
     protected abstract T innerInvoke();
 
-    public ActionBase(Action... dependencies) {
+    ActionBase(Action... dependencies) {
         this.dependencies.addAll(Arrays.asList(dependencies));
     }
 
