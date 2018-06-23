@@ -1,18 +1,18 @@
-package com.company.FunctionJunction;
+package com.company.PureAction;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class FunctionBase implements Function {
+public abstract class ActionBase implements Action {
 
     private boolean executed = false;
-    private List<Function> dependencies = new ArrayList<>();
+    private List<Action> dependencies = new ArrayList<>();
 
     protected abstract boolean isDataReady();
     protected abstract void innerInvoke();
 
-    public FunctionBase(Function... dependencies) {
+    public ActionBase(Action... dependencies) {
         this.dependencies.addAll(Arrays.asList(dependencies));
     }
 
@@ -25,7 +25,7 @@ public abstract class FunctionBase implements Function {
     public boolean isInvokable() {
         if (isDataReady()) {
             boolean ready = true;
-            for (Function dep : dependencies) {
+            for (Action dep : dependencies) {
                 ready = ready && dep.hasExecuted();
             }
             return ready;
@@ -36,10 +36,10 @@ public abstract class FunctionBase implements Function {
     @Override
     public void invoke() {
         if (!isDataReady()) {
-            throw new RuntimeException(String.format("Function %s is not DataReady", getClass().getCanonicalName()));
+            throw new RuntimeException(String.format("Action %s is not DataReady", getClass().getCanonicalName()));
         }
         if (!isInvokable()) {
-            throw new RuntimeException(String.format("Function %s is not Invokable", getClass().getCanonicalName()));
+            throw new RuntimeException(String.format("Action %s is not Invokable", getClass().getCanonicalName()));
         }
 
         innerInvoke();

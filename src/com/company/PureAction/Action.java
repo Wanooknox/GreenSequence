@@ -1,6 +1,7 @@
-package com.company.FunctionJunction;
+package com.company.PureAction;
 
-public interface Function {
+public interface Action {
+
     boolean hasExecuted();
 
     boolean isInvokable();

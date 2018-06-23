@@ -1,6 +1,6 @@
-package com.company.FunctionJunction;
+package com.company.PureAction;
 
-public class SubtractFunction extends FunctionBase {
+public class SubtractAction extends ActionBase {
     @Override
     protected boolean isDataReady() {
 

@@ -1,6 +1,6 @@
-package com.company.ActionSequence;
+package com.company.FunctionSequence;
 
-public class ConkAction2 extends ActionBase {
+public class ConkFunction2 extends FunctionBase {
     @Override
     protected void innerInvoke() {
         System.out.println("test action 2");

@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.ActionSequence.ConkSequence;
+import com.company.FunctionSequence.ConkSequence;
 
 public class Main {
 

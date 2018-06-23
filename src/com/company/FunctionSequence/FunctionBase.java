@@ -1,19 +1,19 @@
-package com.company.ActionSequence;
+package com.company.FunctionSequence;
 
-import com.company.ActionSequence.Interfaces.Action;
+import com.company.FunctionSequence.Interfaces.Function;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class ActionBase implements Action {
+public abstract class FunctionBase implements Function {
 
     private boolean executed = false;
-    private List<Action> dependencies = new ArrayList<>();
+    private List<Function> dependencies = new ArrayList<>();
 
     protected abstract void innerInvoke();
 
     @Override
-    public void dependsOn(Action dependency) {
+    public void dependsOn(Function dependency) {
         dependencies.add(dependency);
     }
 
@@ -25,7 +25,7 @@ public abstract class ActionBase implements Action {
     @Override
     public boolean invokable() {
         boolean ready = true;
-        for (Action dep : dependencies) {
+        for (Function dep : dependencies) {
             ready = ready && dep.hasExecuted();
         }
         return ready;
