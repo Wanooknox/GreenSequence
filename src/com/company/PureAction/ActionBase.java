@@ -36,10 +36,10 @@ public abstract class ActionBase implements Action {
     @Override
     public void invoke() {
         if (!isDataReady()) {
-            throw new RuntimeException(String.format("Action %s is not DataReady", getClass().getCanonicalName()));
+            throw new RuntimeException(String.format("Action %s is not DataReady", getClass().getSimpleName()));
         }
         if (!isInvokable()) {
-            throw new RuntimeException(String.format("Action %s is not Invokable", getClass().getCanonicalName()));
+            throw new RuntimeException(String.format("Action %s is not Invokable", getClass().getSimpleName()));
         }
 
         innerInvoke();
