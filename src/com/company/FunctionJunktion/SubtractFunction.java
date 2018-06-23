@@ -2,8 +2,10 @@ package com.company.FunctionJunktion;
 
 public class SubtractFunction extends FunctionBase {
     @Override
-    protected void gimmedata() {
+    protected boolean isDataReady() {
 
+
+        return false;
     }
 
     @Override

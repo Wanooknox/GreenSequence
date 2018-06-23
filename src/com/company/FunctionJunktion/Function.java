@@ -3,7 +3,7 @@ package com.company.FunctionJunktion;
 public interface Function {
     boolean hasExecuted();
 
-    boolean invokable();
+    boolean isInvokable();
 
     void invoke();
 }
