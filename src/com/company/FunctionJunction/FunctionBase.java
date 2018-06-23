@@ -1,4 +1,4 @@
-package com.company.FunctionJunktion;
+package com.company.FunctionJunction;
 
 import java.util.ArrayList;
 import java.util.Arrays;

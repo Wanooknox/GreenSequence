@@ -1,4 +1,4 @@
-package com.company.FunctionJunktion;
+package com.company.FunctionJunction;
 
 public interface Function {
     boolean hasExecuted();

@@ -1,7 +1,7 @@
-package com.company;
+package com.company.ActionSequence;
 
-import com.company.Interfaces.Action;
-import com.company.Interfaces.Sequence;
+import com.company.ActionSequence.Interfaces.Action;
+import com.company.ActionSequence.Interfaces.Sequence;
 
 import java.util.ArrayDeque;
 import java.util.Queue;

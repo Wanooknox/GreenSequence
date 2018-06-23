@@ -1,6 +1,6 @@
-package com.company;
+package com.company.ActionSequence;
 
-import com.company.Interfaces.Action;
+import com.company.ActionSequence.Interfaces.Action;
 
 import java.util.ArrayList;
 import java.util.List;

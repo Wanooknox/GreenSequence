@@ -1,4 +1,4 @@
-package com.company;
+package com.company.ActionSequence;
 
 public class ConkAction extends ActionBase {
     @Override

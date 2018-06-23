@@ -1,4 +1,4 @@
-package com.company.Interfaces;
+package com.company.ActionSequence.Interfaces;
 
 public interface Action {
 
