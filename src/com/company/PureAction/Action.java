@@ -1,10 +1,10 @@
 package com.company.PureAction;
 
-public interface Action {
+public interface Action<T> {
 
     boolean hasExecuted();
 
     boolean isInvokable();
 
-    void invoke();
+    T invoke();
 }

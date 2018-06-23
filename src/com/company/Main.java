@@ -2,6 +2,7 @@ package com.company;
 
 import com.company.FunctionSequence.ConkSequence;
 import com.company.PureAction.ConsolePrintAction;
+import com.company.PureAction.SubtractAction;
 
 public class Main {
 
@@ -11,7 +12,8 @@ public class Main {
     }
 
     private static void testActions() {
-        new ConsolePrintAction().message("print me!").invoke();
+        Double result = new SubtractAction().setValues(5.0, 2.0).invoke();
+        new ConsolePrintAction().message("print me!: " + result).invoke();
     }
 
     private static void testSequence() {

@@ -1,6 +1,6 @@
 package com.company.PureAction;
 
-public class ConsolePrintAction extends ActionBase {
+public class ConsolePrintAction extends ActionBase<Void> {
 
     private String message;
 
@@ -15,7 +15,8 @@ public class ConsolePrintAction extends ActionBase {
     }
 
     @Override
-    protected void innerInvoke() {
+    protected Void innerInvoke() {
         System.out.println(this.message);
+        return null;
     }
 }

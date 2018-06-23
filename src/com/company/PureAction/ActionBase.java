@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class ActionBase implements Action {
+public abstract class ActionBase<T> implements Action {
 
     private boolean executed = false;
     private List<Action> dependencies = new ArrayList<>();
 
     protected abstract boolean isDataReady();
-    protected abstract void innerInvoke();
+    protected abstract T innerInvoke();
 
     public ActionBase(Action... dependencies) {
         this.dependencies.addAll(Arrays.asList(dependencies));
@@ -34,7 +34,7 @@ public abstract class ActionBase implements Action {
     }
 
     @Override
-    public void invoke() {
+    public T invoke() {
         if (!isDataReady()) {
             throw new RuntimeException(String.format("Action %s is not DataReady", getClass().getSimpleName()));
         }
@@ -42,7 +42,8 @@ public abstract class ActionBase implements Action {
             throw new RuntimeException(String.format("Action %s is not Invokable", getClass().getSimpleName()));
         }
 
-        innerInvoke();
+        T result = innerInvoke();
         executed = true;
+        return result;
     }
 }
