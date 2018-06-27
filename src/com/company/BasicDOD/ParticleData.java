@@ -1,5 +1,7 @@
 package com.company.BasicDOD;
 
+import com.company.DemoCommon.Vector2;
+
 public class ParticleData {
 
     public Vector2 position;

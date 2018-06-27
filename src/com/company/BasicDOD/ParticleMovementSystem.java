@@ -1,5 +1,7 @@
 package com.company.BasicDOD;
 
+import com.company.DemoCommon.Vector2;
+
 public class ParticleMovementSystem {
 
     public void updateMutate(Vector2 position, Vector2 velocity) {

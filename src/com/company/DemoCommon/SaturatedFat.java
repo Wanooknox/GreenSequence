@@ -1,4 +1,4 @@
-package com.company.BasicDOD;
+package com.company.DemoCommon;
 
 import java.util.Random;
 

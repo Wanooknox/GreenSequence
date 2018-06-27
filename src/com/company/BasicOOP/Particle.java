@@ -1,5 +1,8 @@
 package com.company.BasicOOP;
 
+import com.company.DemoCommon.SaturatedFat;
+import com.company.DemoCommon.Vector2;
+
 public class Particle {
 
     private Vector2 position;

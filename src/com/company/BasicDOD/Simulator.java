@@ -1,5 +1,7 @@
 package com.company.BasicDOD;
 
+import com.company.DemoCommon.Vector2;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
