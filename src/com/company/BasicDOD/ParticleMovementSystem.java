@@ -2,8 +2,14 @@ package com.company.BasicDOD;
 
 public class ParticleMovementSystem {
 
-    public void update(Vector2 position, Vector2 velocity) {
+    public void updateMutate(Vector2 position, Vector2 velocity) {
+        // it is actually faster to mutate
         position = position.add(velocity);
+    }
+
+    public ParticleData updateFunctional(Vector2 position, Vector2 velocity) {
+        // the functional construction leads to a roughly 2x increase in deltaTime
+        return new ParticleData(position.add(velocity), velocity);
     }
 
 }

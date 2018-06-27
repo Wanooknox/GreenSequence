@@ -1,13 +1,19 @@
 package com.company.BasicDOD;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Simulator {
 
-    private List<Simulatable> subjects;
+    private static final Random rand = new Random();
+    private final ParticleMovementSystem movementSystem;
 
-    public Simulator(List<Simulatable> subjects) {
-        this.subjects = subjects;
+    private List<ParticleData> particles = new ArrayList<>();
+
+    Simulator(int particleCount) {
+        movementSystem = new ParticleMovementSystem();
+        addParticles(particleCount);
     }
 
     public void run() {
@@ -16,8 +22,12 @@ public class Simulator {
         long freshTime;
         while (true) {
 
-            for (Simulatable subject : subjects) {
-                subject.update();
+            for (ParticleData pd : particles) {
+                // it is faster to update each particle via mutation
+                movementSystem.updateMutate(pd.position, pd.velocity);
+
+                // the functional construction leads to a roughly 2x increase in deltaTime
+                //pd = movementSystem.updateFunctional(pd.position, pd.velocity);
             }
 
             freshTime = getTime();
@@ -28,8 +38,22 @@ public class Simulator {
 
     }
 
+    //region Misc Supporting code
     private long getTime() {
         return System.currentTimeMillis();
     }
 
+    private void addParticles(int count) {
+        for (int i = 0; i < count; i++) {
+            Vector2 position = getRandomVector(1);
+            Vector2 velocity = getRandomVector(rand.nextInt(5));
+
+            particles.add(new ParticleData(position, velocity));
+        }
+    }
+
+    private Vector2 getRandomVector(float scalar) {
+        return new Vector2(rand.nextFloat() * scalar, rand.nextFloat() * scalar);
+    }
+    //endregion
 }

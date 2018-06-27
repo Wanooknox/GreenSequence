@@ -2,8 +2,8 @@ package com.company.BasicDOD;
 
 public class ParticleData {
 
-    private Vector2 position;
-    private Vector2 velocity;
+    public Vector2 position;
+    public Vector2 velocity;
 
 //    private SaturatedFat fattener = new SaturatedFat();
 

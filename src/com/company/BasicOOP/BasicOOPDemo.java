@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class BasicOOPDemo {
 
-    private static final int count = 3 * 1000000;
+    private static final int count = 2 * 1000000;
 
     private static final Random rand = new Random();
 
