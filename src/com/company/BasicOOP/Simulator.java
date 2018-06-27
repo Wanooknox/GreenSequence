@@ -1,13 +1,17 @@
 package com.company.BasicOOP;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Simulator {
 
-    private List<Simulatable> subjects;
+    private static final Random rand = new Random();
 
-    public Simulator(List<Simulatable> subjects) {
-        this.subjects = subjects;
+    private List<Simulatable> subjects = new ArrayList<>();
+
+    Simulator(int subjectCount) {
+        addParticles(subjectCount);
     }
 
     public void run() {
@@ -28,8 +32,22 @@ public class Simulator {
 
     }
 
+    //region Misc Supporting code
     private long getTime() {
         return System.currentTimeMillis();
     }
 
+    private void addParticles(int count) {
+        for (int i = 0; i < count; i++) {
+            Vector2 position = getRandomVector(1f);
+            Vector2 velocity = getRandomVector(rand.nextInt(5));
+
+            subjects.add(new Particle(position, velocity));
+        }
+    }
+
+    private Vector2 getRandomVector(float scalar) {
+        return new Vector2(rand.nextFloat() * scalar, rand.nextFloat() * scalar);
+    }
+    //endregion
 }

@@ -48,7 +48,7 @@ public class Simulator {
 
     private void addParticles(int count) {
         for (int i = 0; i < count; i++) {
-            Vector2 position = getRandomVector(1);
+            Vector2 position = getRandomVector(1f);
             Vector2 velocity = getRandomVector(rand.nextInt(5));
 
             particles.add(new ParticleData(position, velocity));
