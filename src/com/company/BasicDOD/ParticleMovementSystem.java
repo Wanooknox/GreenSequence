@@ -4,7 +4,7 @@ public class ParticleMovementSystem {
 
     public void updateMutate(Vector2 position, Vector2 velocity) {
         // it is actually faster to mutate
-        position = position.add(velocity);
+        position.addMutate(velocity);
     }
 
     public ParticleData updateFunctional(Vector2 position, Vector2 velocity) {

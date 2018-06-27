@@ -22,20 +22,23 @@ public class Simulator {
         long freshTime;
         while (true) {
 
-            for (ParticleData pd : particles) {
-                // it is faster to update each particle via mutation
-                movementSystem.updateMutate(pd.position, pd.velocity);
-
-                // the functional construction leads to a roughly 2x increase in deltaTime
-                //pd = movementSystem.updateFunctional(pd.position, pd.velocity);
-            }
+            simulate();
 
             freshTime = getTime();
             System.out.println(String.format("[ iteration: %s | deltaTime: %s  | totalTime: %s ]", iterCount, freshTime - time, time));
             time = freshTime;
             iterCount++;
         }
+    }
 
+    private void simulate() {
+        for (int i = 0; i < particles.size(); i++) {
+            // it is faster to update each particle via mutation
+            movementSystem.updateMutate(particles.get(i).position, particles.get(i).velocity);
+
+            // the functional construction leads to a roughly 2x increase in deltaTime
+            //particles.set(i, movementSystem.updateFunctional(particles.get(i).position, particles.get(i).velocity));
+        }
     }
 
     //region Misc Supporting code
