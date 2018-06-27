@@ -11,9 +11,12 @@ public class Simulator {
     private static final Random rand = new Random();
     private final ParticleMovementSystem movementSystem;
 
+    private final ParallelParticleMovementSystem parallelMovementSystem;
+
     private List<ParticleData> particles = new ArrayList<>();
 
     Simulator(int particleCount) {
+        parallelMovementSystem = new ParallelParticleMovementSystem();
         movementSystem = new ParticleMovementSystem();
         addParticles(particleCount);
     }
@@ -25,6 +28,7 @@ public class Simulator {
         while (true) {
 
             simulate();
+//            simulateParallel();
 
             freshTime = getTime();
             System.out.println(String.format("[ iteration: %s | deltaTime: %s  | totalTime: %s ]", iterCount, freshTime - time, time));
@@ -41,6 +45,10 @@ public class Simulator {
             // the functional construction leads to a roughly 2x increase in deltaTime
             //particles.set(i, movementSystem.updateFunctional(particles.get(i).position, particles.get(i).velocity));
         }
+    }
+
+    private void simulateParallel() {
+        parallelMovementSystem.update(particles, 1000000);
     }
 
     //region Misc Supporting code
