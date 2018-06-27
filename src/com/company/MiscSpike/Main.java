@@ -1,8 +1,8 @@
-package com.company;
+package com.company.MiscSpike;
 
-import com.company.FunctionSequence.ConkSequence;
-import com.company.PureAction.ConsolePrintAction;
-import com.company.PureAction.SubtractAction;
+import com.company.MiscSpike.FunctionSequence.ConkSequence;
+import com.company.MiscSpike.PureAction.ConsolePrintAction;
+import com.company.MiscSpike.PureAction.SubtractAction;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package com.company.FunctionSequence.Interfaces;
+package com.company.MiscSpike.FunctionSequence.Interfaces;
 
 public interface Function {
 

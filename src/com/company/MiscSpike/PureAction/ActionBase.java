@@ -1,4 +1,4 @@
-package com.company.PureAction;
+package com.company.MiscSpike.PureAction;
 
 import java.util.ArrayList;
 import java.util.Arrays;

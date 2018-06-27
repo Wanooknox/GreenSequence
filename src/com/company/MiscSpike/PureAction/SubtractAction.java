@@ -1,4 +1,4 @@
-package com.company.PureAction;
+package com.company.MiscSpike.PureAction;
 
 public class SubtractAction extends ActionBase<Double> {
 

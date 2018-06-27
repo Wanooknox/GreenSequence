@@ -1,7 +1,7 @@
-package com.company.FunctionSequence;
+package com.company.MiscSpike.FunctionSequence;
 
-import com.company.FunctionSequence.Interfaces.Function;
-import com.company.FunctionSequence.Interfaces.Sequence;
+import com.company.MiscSpike.FunctionSequence.Interfaces.Function;
+import com.company.MiscSpike.FunctionSequence.Interfaces.Sequence;
 
 import java.util.ArrayDeque;
 import java.util.Queue;

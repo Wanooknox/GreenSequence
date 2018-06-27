@@ -1,4 +1,4 @@
-package com.company.FunctionSequence;
+package com.company.MiscSpike.FunctionSequence;
 
 public class ConkFunction2 extends FunctionBase {
     @Override
