@@ -1,6 +1,6 @@
 package com.company.BasicOOP;
 
-public class Particle extends Simulatable {
+public class Particle {
 
     private Vector2 position;
     private Vector2 velocity;
@@ -12,7 +12,6 @@ public class Particle extends Simulatable {
         this.velocity = velocity;
     }
 
-    @Override
     public void update() {
         Move();
     }

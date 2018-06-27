@@ -8,10 +8,10 @@ public class Simulator {
 
     private static final Random rand = new Random();
 
-    private List<Simulatable> subjects = new ArrayList<>();
+    private List<Particle> particles = new ArrayList<>();
 
-    Simulator(int subjectCount) {
-        addParticles(subjectCount);
+    Simulator(int particleCount) {
+        addParticles(particleCount);
     }
 
     public void run() {
@@ -20,8 +20,8 @@ public class Simulator {
         long freshTime;
         while (true) {
 
-            for (Simulatable subject : subjects) {
-                subject.update();
+            for (Particle particle : particles) {
+                particle.update();
             }
 
             freshTime = getTime();
@@ -42,7 +42,7 @@ public class Simulator {
             Vector2 position = getRandomVector(1f);
             Vector2 velocity = getRandomVector(rand.nextInt(5));
 
-            subjects.add(new Particle(position, velocity));
+            particles.add(new Particle(position, velocity));
         }
     }
 
