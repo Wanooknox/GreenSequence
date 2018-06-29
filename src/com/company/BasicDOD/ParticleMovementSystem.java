@@ -7,6 +7,8 @@ public class ParticleMovementSystem {
     public void updateMutate(Vector2 position, Vector2 velocity) {
         // it is actually faster to mutate
         position.addMutate(velocity);
+        // this could be done similarly without mutation by preallocating the memory in
+        // a second destination array
     }
 
     public ParticleData updateFunctional(Vector2 position, Vector2 velocity) {
