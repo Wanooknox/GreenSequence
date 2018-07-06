@@ -21,8 +21,8 @@ public class Simulator {
     public void run() {
         long iterCount = 0;
         float avgDeltaTime = 0.0f;
-        long time = getTime();
-        long freshTime;
+        float time = getTime();
+        float freshTime;
         while (true) {
 
             simulate();
@@ -46,7 +46,7 @@ public class Simulator {
     }
 
     //region Misc Supporting code
-    private float getAvgDeltaTime(float avgDeltaTime, long time, long freshTime, long iterCount) {
+    private float getAvgDeltaTime(float avgDeltaTime, float time, float freshTime, long iterCount) {
         if (avgDeltaTime > 0.001f) {
             return (((iterCount-1)*avgDeltaTime ) + (freshTime - time)) / iterCount;
         } else {
@@ -54,8 +54,8 @@ public class Simulator {
         }
     }
 
-    private long getTime() {
-        return System.currentTimeMillis();
+    private float getTime() {
+        return System.nanoTime() / 1000000f;
     }
 
     private void addParticles(int count) {
