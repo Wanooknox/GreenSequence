@@ -18,6 +18,7 @@ public class Simulator {
 
     public void run() {
         long iterCount = 0;
+        float avgDeltaTime = 0.0f;
         long time = getTime();
         long freshTime;
         while (true) {
@@ -27,7 +28,8 @@ public class Simulator {
             }
 
             freshTime = getTime();
-            System.out.println(String.format("[ iteration: %s | deltaTime: %s  | totalTime: %s ]", iterCount, freshTime - time, time));
+            avgDeltaTime = getAvgDeltaTime(avgDeltaTime, time, freshTime, iterCount);
+            System.out.println(String.format("[ iteration: %s | deltaTime: %s | avgDeltaTime: %s ]", iterCount, freshTime - time, avgDeltaTime));
             time = freshTime;
             iterCount++;
         }
@@ -35,6 +37,14 @@ public class Simulator {
     }
 
     //region Misc Supporting code
+    private float getAvgDeltaTime(float avgDeltaTime, long time, long freshTime, long iterCount) {
+        if (avgDeltaTime > 0.001f) {
+            return (((iterCount-1)*avgDeltaTime ) + (freshTime - time)) / iterCount;
+        } else {
+            return freshTime - time;
+        }
+    }
+
     private long getTime() {
         return System.currentTimeMillis();
     }
