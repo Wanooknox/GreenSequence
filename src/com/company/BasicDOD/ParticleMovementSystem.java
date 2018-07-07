@@ -4,7 +4,7 @@ import com.company.DemoCommon.Vector2;
 
 public class ParticleMovementSystem {
 
-    public void updateMutate(Vector2 position, Vector2 velocity) {
+    public void update(Vector2 position, Vector2 velocity) {
         // it is actually faster to mutate
         position.addMutate(velocity);
         // this could be done similarly without mutation by preallocating the memory in

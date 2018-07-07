@@ -29,7 +29,9 @@ public class Simulator {
 
             freshTime = getTime();
             avgDeltaTime = getAvgDeltaTime(avgDeltaTime, time, freshTime, iterCount);
-            System.out.println(String.format("[ iteration: %s | deltaTime: %s | avgDeltaTime: %s ]", iterCount, freshTime - time, avgDeltaTime));
+            if (iterCount % 1000 == 0) {
+                System.out.println(String.format("[ iteration: %s | deltaTime: %s | avgDeltaTime: %s ]", iterCount, freshTime - time, avgDeltaTime));
+            }
             time = freshTime;
             iterCount++;
         }

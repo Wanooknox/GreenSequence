@@ -29,7 +29,9 @@ public class Simulator {
 
             freshTime = getTime();
             avgDeltaTime = getAvgDeltaTime(avgDeltaTime, time, freshTime, iterCount);
-            System.out.println(String.format("[ iteration: %s | deltaTime: %s | avgDeltaTime: %s ]", iterCount, freshTime - time, avgDeltaTime));
+            if (iterCount % 1000 == 0) {
+                System.out.println(String.format("[ iteration: %s | deltaTime: %s | avgDeltaTime: %s ]", iterCount, freshTime - time, avgDeltaTime));
+            }
             time = freshTime;
             iterCount++;
         }
@@ -38,7 +40,9 @@ public class Simulator {
     private void simulate() {
         for (int i = 0; i < particles.size(); i++) {
             // it is faster to update each particle via mutation
-            movementSystem.updateMutate(particles.get(i).position, particles.get(i).velocity);
+            movementSystem.update(
+                    particles.get(i).position,
+                    particles.get(i).velocity);
 
             // the functional construction leads to a roughly 2x increase in deltaTime
             //particles.set(i, movementSystem.updateFunctional(particles.get(i).position, particles.get(i).velocity));
